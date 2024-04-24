@@ -1,9 +1,33 @@
-import Image from "next/image";
+"use client";
+import styles from "./todo.module.css";
+import { useEffect, useState } from "react";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import ListTasks from "@/components/ListTasks";
 
-export default function Home() {
+const Home = () => {
+  const [tasks, setTasks] = useState([]); 
+  const [users, setUsers] = useState([]);  
+ 
+  useEffect(() => {
+    setTasks(JSON.parse(localStorage.getItem("tasks")));
+    setUsers(JSON.parse(localStorage.getItem("users")));
+
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    <h2>Hi, simo</h2>
-    </main>
+    <DndProvider backend={HTML5Backend}>
+      <div className={styles.home}>
+        <ListTasks
+          tasks={tasks}
+          setTasks={setTasks}
+          users={users}
+          setUsers={setUsers}
+        />
+      </div>
+    </DndProvider>
   );
-}
+};
+
+export default Home;
+

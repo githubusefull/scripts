@@ -1,0 +1,14 @@
+.listTasks {
+    gap: 10px;
+    display: flex;
+    text-transform: capitalize;
+    justify-content: center; 
+    text-align: start; 
+    margin-top: 9px;
+}
+@media (max-width: 768px){
+    .listTasks {
+        display: grid;
+        height: 100%; 
+    }
+}

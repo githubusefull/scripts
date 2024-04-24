@@ -1,0 +1,14 @@
+.container {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    font-size: 23px;
+    font-weight: 700;
+}
+.nav_links {
+    padding: 15px;
+    margin: 5px;
+}

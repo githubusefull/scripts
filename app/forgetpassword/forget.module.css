@@ -1,0 +1,61 @@
+.container {
+    justify-content: center;
+    display: flex;
+    text-align: center;    
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+    width: 370px;
+  }
+  .Reset{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+    width: 370px;
+    background-color: white;
+    padding: 22px 43px;
+    border-radius: 5px;
+    color: black;
+    font-weight: 600;
+  }
+  .form input{
+    padding: 10px;
+    background-color: rgb(209 213 219);
+    color: rgb(55 65 81); 
+    border: none;
+    border-radius: 5px;
+  }
+
+  .form button{
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgb(209 213 219);
+    color: rgb(55 65 81); 
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+  }
+
+
+
+.account {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.forgetpassword {
+  font-size: 14px;
+  font-weight: 500;
+  justify-content: space-between;
+}
+.message {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #F44336;
+
+}

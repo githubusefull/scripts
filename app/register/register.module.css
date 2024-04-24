@@ -1,0 +1,42 @@
+.container {
+    justify-content: center;
+    display: flex;
+    text-align: center;    
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+    width: 370px;
+  }
+  
+  .form input{
+    padding: 10px;
+    background-color: rgb(209 213 219);
+    color: rgb(55 65 81);  
+    border: none;
+    border-radius: 5px;
+  }
+
+  .form button{
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(209 213 219);
+     color: rgb(55 65 81);
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+  }
+  .account {
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+  .message {
+    margin-top: 8px;
+    font-size: 14px;
+color: #F44336;
+  }
+
