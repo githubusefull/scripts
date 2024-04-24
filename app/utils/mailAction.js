@@ -154,12 +154,12 @@ export async function mailAction({ email }) {
 																	<div class="alignment" align="center">
 																	<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
 																	 xmlns:w="urn:schemas-microsoft-com:office:word"
-                                    href="http://localhost:3000/forgetpassword/${token}" 
+                                    href="https://scripts-coral.vercel.app/forgetpassword/${token}" 
 																	  style="height:42px; width:119px;v-text-anchor:middle;" arcsize="10%" stroke="false"
 																	   fillcolor="#df081e"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px">
 																	   <center style="color:black; font-family:Arial, sans-serif; font-size:16px">
 																	   <![endif]-->
-                                     <a href="http://localhost:3000/forgetpassword/${token}"
+                                     <a href="https://scripts-coral.vercel.app/forgetpassword/${token}"
 																	    target="_blank" style="text-decoration:none;display:inline-block;color:black;
 																		background-color:white; border-radius:4px;width:auto;border-top:0px solid 
 																		transparent; font-weight:600; border-right:0px solid transparent;border-bottom:0px 
