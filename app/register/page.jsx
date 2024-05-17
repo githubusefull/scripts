@@ -16,7 +16,7 @@ const Register =  () => {
   e.preventDefault();
   if(!info.username || !info.email || !info.password) {
    toast.error("Must provider all the credentials.")
-  }
+  } else {
   try {
   setPending(true);
   const res = await fetch("api/register",{
@@ -25,14 +25,16 @@ const Register =  () => {
       "Content-Type":"application/json",
     },
     body: JSON.stringify(info),
-  });
+  }); 
   if(res.ok){
     setPending(false);
     const form = e.target;
     localStorage.setItem("users", JSON.stringify(info));
     form.reset();
     router.push("/login");
-    console.log("User Registered");
+    const success = await res.json();
+    toast.success(success.message);
+
   } else {
     const errorData = await res.json();
     toast.error(errorData.message)
@@ -42,7 +44,7 @@ const Register =  () => {
  setPending(false);
  toast.error("Something Went Wrong!.")
   }
- }
+ }}
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>

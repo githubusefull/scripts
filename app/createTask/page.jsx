@@ -2,11 +2,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { TiPlus } from "react-icons/ti";
 import toast from "react-hot-toast";
-const CreateTas = ({tasks, setTasks}) => {
+const CreateTas = ({ tasks, setTasks}) => {
  
 
   const [open, setOpen] = useState(false);
-  const [state, setState] = useState('');
+  const [info, setInfo] = useState({task:""});
 
   const Bottom = useRef(null);
   useEffect(() => {
@@ -14,29 +14,40 @@ const CreateTas = ({tasks, setTasks}) => {
 
   }, [open]);
 
- 
-  const TaskForm = async (formData) => {
-    const res = await fetch("http://localhost:3000/apii", {
-      method: "POST",
-      body: formData,
-    });
-    const data = await res.json();
-    setState(data);
-    toast(state.message)    
-  };
-
-  {/*  
+  function handleInput(e) {
+    setInfo((prev) => ({ ...prev, [e.target.name]: e.target.value}));
+  }
    async function handleSubmit(e) {
    e.preventDefault();
    if(!info.task) {
-    toast.error("empty.")
+    toast.error("Please type your task.")
+   } else { 
+   try {
+   const res = await fetch("api/addtask",{
+     method:"POST",
+     headers: {
+       "Content-Type":"application/json",
+     },
+     body: JSON.stringify(info),
+   });
+   if(res.ok){
+     const form = e.target;
+     localStorage.setItem("tasks", JSON.stringify(info));
+     form.reset();
+     setOpen(false);
+     const success = await res.json();
+     toast.success(success.message);
+   } else {
+     const errorData = await res.json();
+     toast.error(errorData.message)
    }
-   localStorage.setItem("tasks", JSON.stringify(info));
-   toast.success(`Task : ${info.task} : created`)
-
-   console.log("task created")
+   } catch (error) {
+  toast.error("Something Went Wrong!.")
+   }
   }
-*/}
+   }
+  
+
   
   return (
     <div
@@ -52,10 +63,11 @@ const CreateTas = ({tasks, setTasks}) => {
 
       {open && (
         <div className="flex">
-          <form  action={TaskForm} className="">
+          <form  onSubmit={handleSubmit} className="">
             <input
               type="text"
               name="task"
+              onChange={(e) => handleInput(e)}
               placeholder="Enter your task..."
               className="text-[13px]  rounded-[5px] p-[8px] mt-2 w-[100%]  font-[500] outline-none bg-black text-gray-400"
             />

@@ -17,11 +17,10 @@ const Login = () => {
   }
    async function handleSubmit(e) {
    e.preventDefault();
-   //localStorage.setItem("users", JSON.stringify(info));
-
+   localStorage.setItem("users", JSON.stringify(info));
    if(!info.email || !info.password) {
     toast.error("Must provider all the credentials.")
-   }
+   } else {
    try {
     setPending(true);
     localStorage.setItem("users", JSON.stringify(info));
@@ -42,7 +41,7 @@ const Login = () => {
   setPending(false);
   toast.error("Something Went Wrong!.")
    }
-  }
+  }}
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>

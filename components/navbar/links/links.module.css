@@ -8,6 +8,7 @@
 .Logout {
     font-size: 15px; 
     padding: 10px;
+    width: 90px;
     border-radius: 5px;
     cursor: pointer;
     background-color: rgb(209 213 219);
